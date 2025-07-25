@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+venv/
+.env
+
+
+
+# VS Code
+.vscode/
+
+# Migrations
+migrations/versions/__pycache__/
+
+# CSV and data
+*.csv
+
+# OS files
+.DS_Store
+Thumbs.db
