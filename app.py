@@ -1,5 +1,5 @@
 
-from flask import Flask
+from flask import Flask, render_template
 
 
 from flask_migrate import Migrate
@@ -12,8 +12,8 @@ db.init_app(app)
 migrate = Migrate(app, db)
 
 @app.route('/')
-def hello():
-    return 'Hello, World!'
+def home():
+    return render_template('home.html')
 
 if __name__ == '__main__':
     with app.app_context():
