@@ -15,8 +15,38 @@
             <a class="navbar-brand" href="/">القرآن الكريم</a>
         </div>
     </nav>
-    <div class="container">
-        {% block content %}{% endblock %}
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar py-3" style="min-height: 80vh;">
+                <div class="position-sticky">
+                    <h5 class="mb-3">تصفح السور</h5>
+                    <form method="get" action="/sura" class="mb-4">
+                        <div class="input-group">
+                            <select name="num_sura" class="form-select" required>
+                                <option value="" disabled selected>اختر السورة</option>
+                                {% for sura in sura_list %}
+                                    <option value="{{ sura.num_sura }}">{{ sura.name }}</option>
+                                {% endfor %}
+                            </select>
+                            <button class="btn btn-primary" type="submit">اذهب</button>
+                        </div>
+                    </form>
+                    <h5 class="mb-3">تصفح بالآيات</h5>
+                    <form method="get" action="/verses" class="mb-2">
+                        <div class="input-group mb-2">
+                            <input type="number" name="from_aya" min="1" class="form-control" placeholder="من الآية" required>
+                        </div>
+                        <div class="input-group mb-2">
+                            <input type="number" name="to_aya" min="1" class="form-control" placeholder="إلى الآية" required>
+                        </div>
+                        <button class="btn btn-secondary w-100" type="submit">عرض</button>
+                    </form>
+                </div>
+            </nav>
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                {% block content %}{% endblock %}
+            </main>
+        </div>
     </div>
 </body>
 </html>

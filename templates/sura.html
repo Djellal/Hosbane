@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}سورة {{ sura.name if sura else '' }}{% endblock %}
+{% block content %}
+  {% if sura %}
+    <h2 class="mb-4">سورة {{ sura.name }} ({{ sura.num_sura }})</h2>
+    <div class="list-group">
+      {% for aya in ayat %}
+        <div class="list-group-item">
+          <span class="badge bg-primary">{{ aya.num_aya }}</span>
+          <span>{{ aya.text }}</span>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="alert alert-warning">السورة غير موجودة.</div>
+  {% endif %}
+{% endblock %}
