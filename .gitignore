@@ -19,8 +19,6 @@ venv/
 # Migrations
 migrations/versions/__pycache__/
 
-# CSV and data
-*.csv
 
 # OS files
 .DS_Store
